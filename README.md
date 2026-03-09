@@ -3,6 +3,8 @@
 <details>
 <summary>What is FastAPI and why use it in an ML or AI pipeline?</summary>
 
+<br/>
+
 FastAPI is a modern Python framework used to build APIs quickly, efficiently, and with high performance. It is designed for backend development and is especially useful when applications need to send and receive data through HTTP requests.
 
 In a machine learning or artificial intelligence pipeline, FastAPI is often used to expose a trained model as a service. Instead of keeping the model inside a notebook or a local script, FastAPI allows developers to create endpoints that receive input data, run predictions, and return results in a structured format such as JSON.
