@@ -31,11 +31,11 @@ This is a small but complete example of an AI-powered application with a clear s
 
 ```mermaid
 flowchart LR
-    A[User enters 8 features in Streamlit] --> B[Frontend sends HTTP POST request]
-    B --> C[FastAPI backend receives JSON data]
-    C --> D[TensorFlow model processes input]
-    D --> E[Prediction returned by API]
-    E --> F[Streamlit displays the result]
+    A["User enters 8 features in Streamlit"] --> B["Frontend sends HTTP POST request"]
+    B --> C["FastAPI backend receives JSON data"]
+    C --> D["TensorFlow model processes input"]
+    D --> E["Prediction returned by API"]
+    E --> F["Streamlit displays the result"]
 ````
 
 <details>
@@ -131,9 +131,9 @@ Explains the project, installation, architecture, and execution steps.
 
 ```mermaid
 flowchart LR
-    A[Input Layer<br/>8 features] --> B[Hidden Layer 1<br/>16 neurons<br/>ReLU]
-    B --> C[Hidden Layer 2<br/>8 neurons<br/>ReLU]
-    C --> D[Output Layer<br/>1 neuron<br/>Sigmoid]
+    A["Input Layer<br/>8 features"] --> B["Hidden Layer 1<br/>16 neurons<br/>ReLU"]
+    B --> C["Hidden Layer 2<br/>8 neurons<br/>ReLU"]
+    C --> D["Output Layer<br/>1 neuron<br/>Sigmoid"]
 ```
 
 <details>
@@ -208,9 +208,9 @@ This layer:
 
 ```mermaid
 flowchart TD
-    A[Weighted sum z] --> B{Activation function}
-    B --> C[ReLU: max(0, z)]
-    B --> D[Sigmoid: 1 / (1 + e^-z)]
+    A["Weighted sum z"] --> B{"Activation function"}
+    B --> C["ReLU: max(0, z)"]
+    B --> D["Sigmoid: 1 / (1 + e^(-z))"]
 ```
 
 <details>
@@ -499,7 +499,7 @@ def predict(input: PredictionInput):
 ```
 
 <details>
-<summary><strong>Detailed explanation of <code>backend.py</code></summary>
+<summary><strong>Detailed explanation of <code>backend.py</code></strong></summary>
 
 ## Model loading
 
@@ -686,7 +686,7 @@ sequenceDiagram
     participant M as TensorFlow Model
 
     U->>S: Enter 8 features
-    U->>S: Click "Predict"
+    U->>S: Click Predict
     S->>F: POST /predict with JSON data
     F->>M: model.predict(features)
     M-->>F: prediction value
@@ -795,11 +795,11 @@ streamlit run frontend.py
 
 ```mermaid
 flowchart TD
-    A[Install dependencies] --> B[Run model.py]
-    B --> C[Create model.h5]
-    C --> D[Run FastAPI backend]
-    D --> E[Run Streamlit frontend]
-    E --> F[Use the application]
+    A["Install dependencies"] --> B["Run model.py"]
+    B --> C["Create model.h5"]
+    C --> D["Run FastAPI backend"]
+    D --> E["Run Streamlit frontend"]
+    E --> F["Use the application"]
 ```
 
 <details>
@@ -971,7 +971,4 @@ This project is a simple but effective introduction to:
 
 It is especially useful for understanding how a trained model can move from a Python training script into a real application that accepts user input and returns live predictions.
 
-```
 
-Je peux aussi te faire une **version encore plus belle avec ton style `.gpt15` en HTML**, avec `<details>`, blocs visuels, Mermaid, tableaux comparatifs, et une présentation prête pour un cours ou GitHub README avancé.
-```
