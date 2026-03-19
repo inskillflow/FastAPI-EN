@@ -1,4 +1,37 @@
+<a id="top"></a>
+
 # Simple Project Using TensorFlow, FastAPI, and Streamlit
+
+## Table of Contents
+
+| # | Section |
+|---|---|
+| — | [Project Summary](#summary) |
+| 1 | [Project Goal](#section-1) |
+| 2 | [Global Architecture](#section-2) |
+| 3 | [Project Structure](#section-3) |
+| 4 | [Neural Network Explanation](#section-4) |
+| 5 | [Activation Functions](#section-5) |
+| 6 | [Loss Function and Optimizer](#section-6) |
+| 7 | [Training Data Logic](#section-7) |
+| 8 | [File model.py](#section-8) |
+| 9 | [File backend.py](#section-9) |
+| 10 | [File frontend.py](#section-10) |
+| 11 | [API Request / Response Flow](#section-11) |
+| 12 | [requirements.txt File](#section-12) |
+| 13 | [Installation Steps](#section-13) |
+| 14 | [Execution Order](#section-14) |
+| 15 | [Example JSON Input and Output](#section-15) |
+| 16 | [Important Notes](#section-16) |
+| 17 | [Commands Summary](#section-17) |
+| 18 | [Possible Improvements](#section-18) |
+| 19 | [Conclusion](#section-19) |
+
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
+---
+
+<a id="summary"></a>
 
 <details>
 
@@ -15,7 +48,11 @@ The user enters 8 numeric features in the Streamlit interface, the frontend send
 
 </details>
 
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
+
+<a id="section-1"></a>
 
 <details>
 <summary>1 - Project Goal</summary>
@@ -82,7 +119,11 @@ This is exactly what this project demonstrates. The trained model is packaged in
 
 </details>
 
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
+
+<a id="section-2"></a>
 
 <details>
 <summary>2 - Global Architecture</summary>
@@ -424,7 +465,11 @@ Together, these ideas form the foundation of many modern AI applications.
 
 </details>
 
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
+
+<a id="section-3"></a>
 
 <details>
 <summary>3 - Project Structure</summary>
@@ -762,7 +807,11 @@ This is a simple but very good structure for building a first end-to-end AI appl
 
 </details>
 
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
+
+<a id="section-4"></a>
 
 <details>
 <summary>4 - Neural Network Explanation</summary>
@@ -1335,7 +1384,11 @@ This is a simple but very good example of how a neural network works in practice
 
 </details>
 
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
+
+<a id="section-5"></a>
 
 <details>
 <summary>5 - Activation Functions</summary>
@@ -1480,7 +1533,11 @@ In this project, sigmoid is only used in the output layer, which is the correct 
 
 </details>
 
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
+
+<a id="section-6"></a>
 
 <details>
 <summary>6 - Loss Function and Optimizer</summary>
@@ -1608,7 +1665,11 @@ The loss decreases and the accuracy increases as the model improves. This is the
 
 </details>
 
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
+
+<a id="section-7"></a>
 
 <details>
 <summary>7 - Training Data Logic</summary>
@@ -1693,7 +1754,11 @@ The rest of the code — the model architecture, the backend, the frontend — w
 
 </details>
 
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
+
+<a id="section-8"></a>
 
 <details>
 <summary>8 - File `model.py`</summary>
@@ -1805,7 +1870,11 @@ Saves the trained model to disk.
 
 </details>
 
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
+
+<a id="section-9"></a>
 
 <details>
 <summary>9 - File `backend.py`</summary>
@@ -1914,7 +1983,11 @@ The output is converted into a Python float and returned as JSON.
 
 </details>
 
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
+
+<a id="section-10"></a>
 
 <details>
 <summary>10 - File `frontend.py`</summary>
@@ -2017,7 +2090,11 @@ Otherwise, an error message is shown.
 
 </details>
 
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
+
+<a id="section-11"></a>
 
 <details>
 <summary>11 - API Request / Response Flow</summary>
@@ -2113,7 +2190,11 @@ If the model file was not generated (i.e., `python model.py` was not run before 
 
 </details>
 
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
+
+<a id="section-12"></a>
 
 <details>
 <summary>12 - `requirements.txt` File</summary>
@@ -2160,7 +2241,11 @@ Used by Streamlit to communicate with the backend API.
 
 </details>
 
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
+
+<a id="section-13"></a>
 
 <details>
 <summary>13 - Installation Steps</summary>
@@ -2218,7 +2303,11 @@ streamlit run frontend.py
 
 </details>
 
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
+
+<a id="section-14"></a>
 
 <details>
 <summary>14 - Execution Order</summary>
@@ -2255,7 +2344,11 @@ Without this file, the backend cannot load the trained model and will fail at st
 
 </details>
 
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
+
+<a id="section-15"></a>
 
 <details>
 <summary>15 - Example JSON Input and Output</summary>
@@ -2327,7 +2420,11 @@ In the frontend, this threshold is not explicitly applied — the raw probabilit
 
 </details>
 
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
+
+<a id="section-16"></a>
 
 <details>
 <summary>16 - Important Notes</summary>
@@ -2481,7 +2578,11 @@ In a production system, you would usually add:
 
 </details>
 
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
+
+<a id="section-17"></a>
 
 <details>
 <summary>17 - Commands Summary</summary>
@@ -2517,7 +2618,11 @@ streamlit run frontend.py
 
 </details>
 
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
+
+<a id="section-18"></a>
 
 <details>
 <summary>18 - Possible Improvements</summary>
@@ -2545,7 +2650,11 @@ You can improve this project by adding:
 
 </details>
 
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
+
+<a id="section-19"></a>
 
 <details>
 <summary>19 - Conclusion</summary>
