@@ -20,7 +20,7 @@ The user enters 8 numeric features in the Streamlit interface, the frontend send
 
 # 1 - Project Goal
 <details>
-<summary>Section Summary</summary>
+<summary>Project Goal Overview</summary>
 <br/>
 The goal of this project is to show how a machine learning model can be:
 
@@ -37,6 +37,14 @@ This is a small but complete example of an AI-powered application with a clear s
 
 </details>
 
+
+
+
+
+
+
+
+
 # 2 - Global Architecture
 
 ```mermaid
@@ -49,42 +57,181 @@ flowchart LR
 ````
 
 <details>
-<summary><strong>Detailed explanation of the architecture</strong></summary>
+<summary>Architecture Overview</summary>
 
-This project is divided into three main parts:
+<br/>
 
-## 1. The model layer
-
-The file `model.py` is responsible for:
-
-* generating dummy training data,
-* defining the neural network,
-* training the model,
-* saving the trained model to a file named `model.h5`.
-
-## 2. The backend layer
-
-The file `backend.py` is responsible for:
-
-* loading the trained model,
-* exposing an API endpoint with FastAPI,
-* receiving input data,
-* converting the input into a NumPy array,
-* sending the data to the model,
-* returning the prediction as JSON.
-
-## 3. The frontend layer
-
-The file `frontend.py` is responsible for:
-
-* displaying a user interface with Streamlit,
-* collecting the 8 input values,
-* sending the values to the FastAPI backend,
-* displaying the returned prediction.
+This section explains how the application works from beginning to end. It shows how the user interface, the backend API, and the TensorFlow model communicate with each other to produce a prediction. Even though the project is simple, it follows the structure of a real AI application with separate components for input, processing, and output.
 
 </details>
 
----
+<details>
+<summary><strong>Detailed explanation of the architecture</strong></summary>
+
+<br/>
+
+This project is organized into **three main parts**. Each part has a specific role in the application.
+
+## 1. The model layer
+
+The file `model.py` is responsible for creating and training the machine learning model.
+
+Its role is to:
+
+* generate sample training data
+* define the TensorFlow neural network
+* train the model
+* save the trained model into a file named `model.h5`
+
+This file is used only for the **training phase**. Once the model is trained and saved, the backend can load it later without training it again.
+
+## 2. The backend layer
+
+The file `backend.py` is responsible for connecting the trained model to the outside world through an API.
+
+Its role is to:
+
+* load the trained model from `model.h5`
+* create an API with FastAPI
+* receive input values sent by the frontend
+* convert the received data into a format that TensorFlow can use
+* send the data to the model
+* return the prediction result in JSON format
+
+In simple terms, the backend acts as a **bridge** between the user interface and the machine learning model.
+
+## 3. The frontend layer
+
+The file `frontend.py` is responsible for the user interface.
+
+Its role is to:
+
+* display a simple interface with Streamlit
+* allow the user to enter 8 numeric values
+* send these values to the FastAPI backend
+* receive the prediction returned by the API
+* display the result clearly on the screen
+
+In simple terms, this is the part of the project that the user can directly see and interact with.
+
+## 4. How everything works together
+
+The complete workflow is the following:
+
+1. The user enters 8 numeric features in the Streamlit interface.
+2. The frontend sends these values to the FastAPI backend.
+3. The backend receives the data and prepares it for the model.
+4. The TensorFlow model processes the input and generates a prediction.
+5. The backend sends the result back to the frontend.
+6. Streamlit displays the prediction to the user.
+
+This architecture is useful because each part of the application has a **clear responsibility**:
+
+* **TensorFlow** handles the machine learning logic
+* **FastAPI** handles communication and prediction requests
+* **Streamlit** handles user interaction
+
+This separation makes the project easier to understand, test, and improve.
+
+</details>
+```
+
+Version encore plus **débutant absolu**, avec un ton plus pédagogique :
+
+````markdown
+# 2 - Global Architecture
+
+```mermaid
+flowchart LR
+    A["User enters 8 features <br/> in Streamlit"] --> B["Frontend sends <br/> HTTP POST request"]
+    B --> C["FastAPI backend receives <br/> JSON data"]
+    C --> D["TensorFlow model <br/> processes input"]
+    D --> E["Prediction returned <br/> by API"]
+    E --> F["Streamlit displays <br/> the result"]
+````
+
+<details>
+<summary>Architecture Overview</summary>
+
+<br/>
+
+This section shows the general structure of the project. The application is divided into three connected parts: the frontend, the backend, and the machine learning model. Together, these parts allow the user to enter data, send it to the model, and receive a prediction.
+
+</details>
+
+<details>
+<summary><strong>Detailed explanation of the architecture</strong></summary>
+
+<br/>
+
+This project is built with **three main components** that work together.
+
+## 1. The model
+
+The file `model.py` is used to create and train the machine learning model.
+
+It is responsible for:
+
+* preparing sample data
+* building the TensorFlow model
+* training the model
+* saving the trained model as `model.h5`
+
+This step happens before the application is used.
+
+## 2. The backend
+
+The file `backend.py` is the middle part of the application.
+
+It is responsible for:
+
+* loading the trained model
+* receiving data from the frontend
+* sending the data to the model
+* getting the prediction
+* returning the result
+
+The backend is built with **FastAPI**.
+
+## 3. The frontend
+
+The file `frontend.py` is the visible part of the application.
+
+It is responsible for:
+
+* showing the input fields
+* letting the user enter 8 values
+* sending the values to the backend
+* displaying the prediction
+
+The frontend is built with **Streamlit**.
+
+## 4. Simple workflow
+
+Here is what happens when the application runs:
+
+1. The user types 8 values in Streamlit.
+2. Streamlit sends the values to FastAPI.
+3. FastAPI passes the data to the TensorFlow model.
+4. The model makes a prediction.
+5. FastAPI returns the result.
+6. Streamlit shows the final prediction.
+
+This structure is important because it separates the project into clear parts, which makes the application easier to build and understand.
+
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
 
 # 3 - Project Structure
 
