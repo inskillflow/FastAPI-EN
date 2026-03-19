@@ -2,7 +2,7 @@
 
 <details> 
 
-<summary> Simple Project Using TensorFlow, FastAPI, and Streamlit </summary>
+<summary>Project Summary</summary>
 
 <br/>
 This project demonstrates a simple end-to-end machine learning application using:
