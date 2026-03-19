@@ -358,7 +358,7 @@ For example, later you could:
 
 Because the project is already separated into layers, these improvements become easier to implement.
 
----
+
 
 ## 7. Beginner-friendly analogy
 
@@ -408,7 +408,21 @@ Together, these ideas form the foundation of many modern AI applications.
 
 
 
+
+
+
+
+
+
+
+
+
 # 3 - Project Structure
+
+<details>
+<summary>Project Structure Overview</summary>
+
+<br/>
 
 ```text
 .
@@ -417,124 +431,355 @@ Together, these ideas form the foundation of many modern AI applications.
 ├── model.py
 ├── README.md
 └── requirements.txt
-```
+````
 
-<details>
-<summary><strong>Role of each file</strong></summary>
+This section presents the file organization of the project. Understanding the structure of the project is very important for beginners because it helps answer a simple question: **where does each part of the application belong?**
 
-## `model.py`
+Instead of putting everything in one large file, the project is divided into several files, and each file has a specific role. This makes the code easier to read, easier to debug, and easier to maintain.
 
-Contains the machine learning logic:
+In this project, each file corresponds to one important part of the application:
 
-* generates the data,
-* defines the neural network,
-* trains the model,
-* saves the trained model.
+* one file for training the machine learning model
+* one file for the backend API
+* one file for the frontend interface
+* one file for dependencies
+* one file for documentation
 
-## `backend.py`
-
-Contains the FastAPI server:
-
-* loads the trained model,
-* defines the API endpoint `/predict`,
-* performs inference.
-
-## `frontend.py`
-
-Contains the Streamlit interface:
-
-* displays input fields,
-* sends requests to the backend,
-* shows the result.
-
-## `requirements.txt`
-
-Contains all Python dependencies needed to run the project.
-
-## `README.md`
-
-Explains the project, installation, architecture, and execution steps.
-
-</details>
+This organization is simple, clean, and very common in beginner-friendly machine learning projects.
 
 ---
 
-# 4 - Neural Network Explanation
+## 1. Why project structure matters
 
-```mermaid
-flowchart LR
-    A["Input Layer<br/>8 features"] --> B["Hidden Layer 1<br/>16 neurons<br/>ReLU"]
-    B --> C["Hidden Layer 2<br/>8 neurons<br/>ReLU"]
-    C --> D["Output Layer<br/>1 neuron<br/>Sigmoid"]
-```
+When beginners start coding, they often place everything in a single file. This may work for very small experiments, but it quickly becomes difficult to manage.
 
-<details>
-<summary><strong>What is this neural network doing?</strong></summary>
+For example, if one file contains:
 
-This model is a **binary classification neural network**.
+* the model training code
+* the API code
+* the frontend code
+* the installation instructions
 
-It receives **8 numeric input values** and produces **one output value between 0 and 1**.
+then the project becomes confusing.
 
-* If the output is close to **0**, the model predicts class **0**
-* If the output is close to **1**, the model predicts class **1**
+By separating the project into multiple files, we make each part easier to understand.
 
-This means the model is estimating the probability that the input belongs to the positive class.
+A good project structure helps you:
 
-</details>
+* know where to find the code you need
+* understand the purpose of each file
+* avoid mixing unrelated logic together
+* improve the project more easily later
 
-<details>
-<summary><strong>Explanation of each layer</strong></summary>
-
-## Input layer
-
-The model expects an input vector of size **8**, because each sample contains **8 features**.
-
-Example:
-
-```python
-[0.2, 0.8, 0.1, 0.7, 0.9, 0.3, 0.5, 0.6]
-```
-
-## First hidden layer
-
-```python
-Dense(16, activation='relu', input_shape=(8,))
-```
-
-This layer:
-
-* receives the 8 input values,
-* computes weighted combinations,
-* applies the **ReLU** activation function,
-* produces 16 outputs.
-
-## Second hidden layer
-
-```python
-Dense(8, activation='relu')
-```
-
-This layer:
-
-* takes the 16 outputs of the previous layer,
-* transforms them again,
-* produces 8 new learned features.
-
-## Output layer
-
-```python
-Dense(1, activation='sigmoid')
-```
-
-This layer:
-
-* outputs a single value,
-* uses **sigmoid** to map the result between **0 and 1**,
-* gives the probability of belonging to class 1.
-
-</details>
+In other words, the project structure is like the blueprint of the application.
 
 ---
+
+## 2. `model.py`
+
+The file `model.py` contains the machine learning logic of the project.
+
+Its role is to:
+
+* generate the data
+* define the TensorFlow model
+* train the model
+* save the trained model
+
+### What does this file do?
+
+This file is responsible for the **training phase**.
+
+That means it is the file that teaches the neural network how to learn from data. In this beginner project, the data is generated directly in Python to keep the example simple. In a real-world project, this data could come from a CSV file, a database, or another external source.
+
+### Why is this file separate?
+
+The training code is placed in its own file because training is a specific task. It is usually done before running the application for users.
+
+This separation is useful because:
+
+* the model does not need to be retrained every time the app starts
+* the backend can simply load the saved model
+* the project stays organized
+
+### What is saved after training?
+
+After training, the model is stored in a file such as `model.h5`.
+
+This saved file is important because it contains the learned parameters of the neural network. Later, the backend will load this file and use it to make predictions.
+
+### Important beginner idea
+
+`model.py` is mainly for **building and training** the model.
+
+It is not the file that the user interacts with directly.
+
+---
+
+## 3. `backend.py`
+
+The file `backend.py` contains the FastAPI server.
+
+Its role is to:
+
+* load the trained model
+* define the API endpoint `/predict`
+* receive input data
+* perform inference
+* return the prediction result
+
+### What does this file do?
+
+This file acts as the **middle layer** of the application.
+
+It receives requests from the frontend, prepares the input data, sends it to the model, gets the prediction, and sends the result back.
+
+### Why do we need a backend?
+
+A backend is useful because it separates the machine learning model from the user interface.
+
+Instead of letting the frontend access the model directly, the frontend sends a request to the backend, and the backend handles the prediction.
+
+This makes the application:
+
+* more organized
+* more realistic
+* easier to reuse in other systems
+
+### What is `/predict`?
+
+The endpoint `/predict` is the route used by the frontend to ask for a prediction.
+
+In simple words, it is the address in the API where the frontend sends the 8 input values.
+
+For example, the frontend may send data to something like:
+
+```text
+http://127.0.0.1:8000/predict
+```
+
+The backend receives the values, runs the model, and returns the result.
+
+### Important beginner idea
+
+`backend.py` is responsible for **communication and prediction**.
+
+It is the connection between the frontend and the trained model.
+
+---
+
+## 4. `frontend.py`
+
+The file `frontend.py` contains the Streamlit interface.
+
+Its role is to:
+
+* display input fields
+* collect the 8 numeric values
+* send requests to the backend
+* show the prediction result
+
+### What does this file do?
+
+This file creates the part of the application that the user can see and use.
+
+The frontend is where the user enters the data and clicks a button to request a prediction.
+
+### Why is this file separate?
+
+The frontend is separated from the backend and the model because its role is different.
+
+The frontend is not responsible for:
+
+* training the model
+* storing the model
+* running the internal prediction logic
+
+Its responsibility is to provide a simple and clear interface for the user.
+
+### What happens in this file?
+
+In general, `frontend.py` will:
+
+1. display numeric input fields
+2. wait for the user to enter values
+3. send these values to the FastAPI backend
+4. receive the response
+5. display the prediction on the page
+
+### Important beginner idea
+
+`frontend.py` is the **visible part** of the application.
+
+It is what the user interacts with directly.
+
+---
+
+## 5. `requirements.txt`
+
+The file `requirements.txt` contains the Python dependencies needed to run the project.
+
+### What is a dependency?
+
+A dependency is a library or package that the project needs in order to work.
+
+For this project, examples of dependencies may include:
+
+* `tensorflow`
+* `fastapi`
+* `uvicorn`
+* `streamlit`
+* `requests`
+* `numpy`
+
+### Why is this file important?
+
+This file makes installation much easier.
+
+Instead of installing each package one by one manually, we can install everything with a single command such as:
+
+```bash
+pip install -r requirements.txt
+```
+
+This is especially useful when:
+
+* sharing the project with another person
+* moving the project to another computer
+* recreating the same environment later
+
+### Important beginner idea
+
+`requirements.txt` is not Python code for the application itself.
+
+It is a support file that lists all the packages needed for the project.
+
+---
+
+## 6. `README.md`
+
+The file `README.md` contains the project documentation.
+
+Its role is to explain:
+
+* what the project does
+* how the project is organized
+* how to install dependencies
+* how to run the files
+* how the architecture works
+
+### Why is this file important?
+
+A project is not complete if the code exists but nobody knows how to use it.
+
+The README file is often the first file that another person reads when discovering the project.
+
+It acts like a guide.
+
+A good `README.md` helps the reader understand:
+
+* the purpose of the project
+* the technologies used
+* the file structure
+* the execution steps
+
+### Why is it called `.md`?
+
+The extension `.md` means **Markdown**.
+
+Markdown is a lightweight format used to write structured documentation with titles, lists, code blocks, links, and other readable elements.
+
+### Important beginner idea
+
+`README.md` is not part of the application logic, but it is an essential file for explaining and presenting the project properly.
+
+---
+
+## 7. How all files work together
+
+Now let us connect all the files together.
+
+### Step 1: `model.py`
+
+This file trains the TensorFlow model and saves it.
+
+### Step 2: `backend.py`
+
+This file loads the saved model and creates the API used for prediction.
+
+### Step 3: `frontend.py`
+
+This file displays the interface and sends the user’s input to the backend.
+
+### Step 4: `requirements.txt`
+
+This file makes sure that all required Python libraries are installed.
+
+### Step 5: `README.md`
+
+This file explains how to install, understand, and run the project.
+
+Together, these files form a complete and organized machine learning application.
+
+---
+
+## 8. Beginner-friendly analogy
+
+You can think of the project structure like a small company where each person has a different job:
+
+* `model.py` is the specialist who learns and builds the prediction system
+* `backend.py` is the coordinator who receives requests and sends them to the model
+* `frontend.py` is the receptionist who interacts with the user
+* `requirements.txt` is the list of tools needed by the team
+* `README.md` is the instruction manual that explains how everything works
+
+Each file has its own responsibility, and together they make the whole project function correctly.
+
+---
+
+## 9. Final idea to remember
+
+The most important idea is that each file exists for a reason.
+
+This structure helps beginners understand that a real application is usually divided into separate parts, and each part solves a specific problem.
+
+In this project:
+
+* `model.py` handles training
+* `backend.py` handles prediction requests
+* `frontend.py` handles user interaction
+* `requirements.txt` handles dependencies
+* `README.md` handles documentation
+
+This is a simple but very good structure for building a first end-to-end AI application.
+
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # 5 - Activation Functions
 
