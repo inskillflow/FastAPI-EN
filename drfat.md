@@ -3,6 +3,8 @@
 <details> 
 
 <summary> Simple Project Using TensorFlow, FastAPI, and Streamlit </summary>
+
+<br/>
 This project demonstrates a simple end-to-end machine learning application using:
 
 - **TensorFlow** to train a binary classification model
