@@ -48,9 +48,9 @@ The word "interface" is key. Just as a light switch is an interface between you 
 
 ```mermaid
 flowchart LR
-    A["Client\n(your code, app, browser)"] -->|"Request"| B["API\n(the contract)"]
+    A["Client<br/>(your code, app, browser)"] -->|"Request"| B["API<br/>(the contract)"]
     B -->|"Response"| A
-    B --> C["Server / Service\n(the implementation)"]
+    B --> C["Server / Service<br/>(the implementation)"]
 ```
 
 ---
@@ -74,10 +74,10 @@ There are several styles of APIs. The most common today is **REST**.
 
 ```mermaid
 flowchart TD
-    A["API styles"] --> B["REST\nRepresentational State Transfer\nMost common today"]
-    A --> C["SOAP\nSimple Object Access Protocol\nOlder, XML-based, enterprise systems"]
-    A --> D["GraphQL\nQuery language for APIs\nDeveloped by Facebook"]
-    A --> E["gRPC\nGoogle's binary protocol\nHigh performance, microservices"]
+    A["API styles"] --> B["REST<br/>Representational State Transfer<br/>Most common today"]
+    A --> C["SOAP<br/>Simple Object Access Protocol<br/>Older, XML-based, enterprise systems"]
+    A --> D["GraphQL<br/>Query language for APIs<br/>Developed by Facebook"]
+    A --> E["gRPC<br/>Google's binary protocol<br/>High performance, microservices"]
 ```
 
 **REST** (Representational State Transfer) is an architectural style built on top of HTTP. A REST API exposes resources (such as users, products, or predictions) through URLs, and uses HTTP methods to define what action to perform on those resources.
@@ -115,12 +115,12 @@ REST is not just a style — it is a set of 6 architectural constraints defined 
 
 ```mermaid
 flowchart TD
-    REST["REST Architecture\n6 Constraints"] --> C1["1. Client-Server\nUI and data are separated"]
-    REST --> C2["2. Stateless\nNo session stored on server"]
-    REST --> C3["3. Cacheable\nResponses can be cached"]
-    REST --> C4["4. Uniform Interface\nConsistent URL and method patterns"]
-    REST --> C5["5. Layered System\nClient doesn't know about middleware"]
-    REST --> C6["6. Code on Demand\n(Optional) Server can send code"]
+    REST["REST Architecture<br/>6 Constraints"] --> C1["1. Client-Server<br/>UI and data are separated"]
+    REST --> C2["2. Stateless<br/>No session stored on server"]
+    REST --> C3["3. Cacheable<br/>Responses can be cached"]
+    REST --> C4["4. Uniform Interface<br/>Consistent URL and method patterns"]
+    REST --> C5["5. Layered System<br/>Client doesn't know about middleware"]
+    REST --> C6["6. Code on Demand<br/>(Optional) Server can send code"]
 ```
 
 **1. Client-Server separation**
@@ -138,10 +138,10 @@ sequenceDiagram
 
     Note over S: Server remembers NOTHING between requests
 
-    C->>S: GET /profile\nAuthorization: Bearer token123
+    C->>S: GET /profile<br/>Authorization: Bearer token123
     S-->>C: 200 OK — user data
 
-    C->>S: GET /orders\nAuthorization: Bearer token123
+    C->>S: GET /orders<br/>Authorization: Bearer token123
     S-->>C: 200 OK — orders list
 
     Note over C,S: Token is sent EVERY time — server is stateless
@@ -227,11 +227,11 @@ APIs communicate over HTTP using standard data formats like JSON. This means the
 
 ```mermaid
 flowchart LR
-    B["REST API\n(Python / FastAPI)"]
-    A1["JavaScript\nfrontend"] -->|"JSON"| B
-    A2["Swift\niOS app"] -->|"JSON"| B
-    A3["Java\nAndroid app"] -->|"JSON"| B
-    A4["Go\nmicroservice"] -->|"JSON"| B
+    B["REST API<br/>(Python / FastAPI)"]
+    A1["JavaScript<br/>frontend"] -->|"JSON"| B
+    A2["Swift<br/>iOS app"] -->|"JSON"| B
+    A3["Java<br/>Android app"] -->|"JSON"| B
+    A4["Go<br/>microservice"] -->|"JSON"| B
 ```
 
 ---
@@ -268,8 +268,8 @@ sequenceDiagram
     participant C as Client
     participant S as Server
 
-    C->>S: HTTP Request\n(method + URL + headers + body)
-    S-->>C: HTTP Response\n(status code + headers + body)
+    C->>S: HTTP Request<br/>(method + URL + headers + body)
+    S-->>C: HTTP Response<br/>(status code + headers + body)
 ```
 
 ---
@@ -303,11 +303,11 @@ Authorization: Bearer eyJhbGci...
 
 ```mermaid
 flowchart LR
-    A["HTTP Methods"] --> B["GET\nRead data\nNo body"]
-    A --> C["POST\nCreate new resource\nBody required"]
-    A --> D["PUT\nReplace resource entirely\nBody required"]
-    A --> E["PATCH\nUpdate part of a resource\nBody required"]
-    A --> F["DELETE\nRemove a resource\nNo body"]
+    A["HTTP Methods"] --> B["GET<br/>Read data<br/>No body"]
+    A --> C["POST<br/>Create new resource<br/>Body required"]
+    A --> D["PUT<br/>Replace resource entirely<br/>Body required"]
+    A --> E["PATCH<br/>Update part of a resource<br/>Body required"]
+    A --> F["DELETE<br/>Remove a resource<br/>No body"]
 ```
 
 #### GET — Read data
@@ -403,9 +403,9 @@ flowchart LR
         R4["DELETE /students/42 → delete_student(42)"]
     end
 
-    A["Client request:\nGET /students/42"] --> B["Router\nmatches method + path"]
+    A["Client request:<br/>GET /students/42"] --> B["Router<br/>matches method + path"]
     B --> R3
-    R3 --> C["Response:\n{id: 42, name: ...}"]
+    R3 --> C["Response:<br/>{id: 42, name: ...}"]
 ```
 
 A route is defined by two things:
@@ -498,11 +498,11 @@ Status codes are standardized by the IETF (Internet Engineering Task Force). Thi
 
 ```mermaid
 flowchart LR
-    A["Status codes"] --> B["1xx\nInformational\nRequest received, processing"]
-    A --> C["2xx\nSuccess\nRequest completed successfully"]
-    A --> D["3xx\nRedirection\nFurther action needed"]
-    A --> E["4xx\nClient error\nProblem with the request"]
-    A --> F["5xx\nServer error\nProblem on the server"]
+    A["Status codes"] --> B["1xx<br/>Informational<br/>Request received, processing"]
+    A --> C["2xx<br/>Success<br/>Request completed successfully"]
+    A --> D["3xx<br/>Redirection<br/>Further action needed"]
+    A --> E["4xx<br/>Client error<br/>Problem with the request"]
+    A --> F["5xx<br/>Server error<br/>Problem on the server"]
 ```
 
 The most important distinction is between **4xx** and **5xx** errors:
@@ -608,13 +608,13 @@ Before installing any library, you should create a **virtual environment**. A vi
 ```mermaid
 flowchart TD
     subgraph GLOBAL["Without virtual environment — conflicts"]
-        G["Global Python\npip install requests==2.28\npip install requests==2.31\n❌ Only one version can exist"]
+        G["Global Python<br/>pip install requests==2.28<br/>pip install requests==2.31<br/>❌ Only one version can exist"]
     end
 
     subgraph VENV["With virtual environments — isolated"]
-        V1["Project A\nvenv_a/\nrequests==2.28\nfastapi==0.95"]
-        V2["Project B\nvenv_b/\nrequests==2.31\nflask==3.0"]
-        V3["Project C\nvenv_c/\nrequests==2.30\ndjango==4.2"]
+        V1["Project A<br/>venv_a/<br/>requests==2.28<br/>fastapi==0.95"]
+        V2["Project B<br/>venv_b/<br/>requests==2.31<br/>flask==3.0"]
+        V3["Project C<br/>venv_c/<br/>requests==2.30<br/>django==4.2"]
     end
 ```
 
@@ -842,11 +842,11 @@ except requests.exceptions.ConnectionError:
 
 ```mermaid
 flowchart LR
-    A["requests.get(url,\nparams=...,\nheaders=...,\ntimeout=...)"] --> B["Build HTTP request"]
+    A["requests.get(url,<br/>params=...,<br/>headers=...,<br/>timeout=...)"] --> B["Build HTTP request"]
     B --> C["Send over network"]
-    C --> D["Server processes\nrequest"]
-    D --> E["HTTP Response\nstatus + headers + body"]
-    E --> F["response.status_code\nresponse.headers\nresponse.json()\nresponse.text"]
+    C --> D["Server processes<br/>request"]
+    D --> E["HTTP Response<br/>status + headers + body"]
+    E --> F["response.status_code<br/>response.headers<br/>response.json()<br/>response.text"]
 ```
 
 ---
@@ -1050,11 +1050,11 @@ Try the following requests one by one in Postman:
 ```mermaid
 flowchart LR
     A["Open Postman"] --> B["New Request"]
-    B --> C["Choose method\nGET / POST / PUT..."]
+    B --> C["Choose method<br/>GET / POST / PUT..."]
     C --> D["Enter URL"]
-    D --> E["Add Body if needed\nraw → JSON"]
+    D --> E["Add Body if needed<br/>raw → JSON"]
     E --> F["Click Send"]
-    F --> G["See status code\nand response body"]
+    F --> G["See status code<br/>and response body"]
 ```
 
 </details>
@@ -1076,11 +1076,11 @@ FastAPI is one of the fastest Python frameworks available, thanks to its asynchr
 
 ```mermaid
 flowchart LR
-    A["Client\nsends request"] --> B["FastAPI\nrouter"]
-    B --> C["Pydantic\nvalidation"]
-    C --> D["Your function\n(endpoint)"]
-    D --> E["Response\nJSON"]
-    C -->|"Invalid data"| F["422 error\nautomatically"]
+    A["Client<br/>sends request"] --> B["FastAPI<br/>router"]
+    B --> C["Pydantic<br/>validation"]
+    C --> D["Your function<br/>(endpoint)"]
+    D --> E["Response<br/>JSON"]
+    C -->|"Invalid data"| F["422 error<br/>automatically"]
 ```
 
 ---
@@ -1113,13 +1113,13 @@ The decorator syntax (`@`) is just a cleaner way to write this registration. Whe
 
 ```mermaid
 flowchart LR
-    A["@app.get('/students')\ndef list_students():..."] --> B["FastAPI routing table"]
+    A["@app.get('/students')<br/>def list_students():..."] --> B["FastAPI routing table"]
     B --> R1["GET  /students  → list_students"]
     B --> R2["POST /students  → create_student"]
     B --> R3["GET  /students/{id}  → get_student"]
 
-    C["Incoming request\nGET /students"] --> B
-    B --> D["list_students() called\nResponse returned"]
+    C["Incoming request<br/>GET /students"] --> B
+    B --> D["list_students() called<br/>Response returned"]
 ```
 
 **The different decorators and what they do:**
@@ -1310,14 +1310,14 @@ This is one of FastAPI's most powerful features: as you write code, the document
 
 ```mermaid
 flowchart TD
-    A["main.py\napp = FastAPI()"] --> B["@app.get('/users')"]
+    A["main.py<br/>app = FastAPI()"] --> B["@app.get('/users')"]
     A --> C["@app.post('/users')"]
     A --> D["@app.put('/users/{id}')"]
     A --> E["@app.delete('/users/{id}')"]
-    B --> F["Pydantic\nResponse model"]
-    C --> G["Pydantic\nRequest model"]
+    B --> F["Pydantic<br/>Response model"]
+    C --> G["Pydantic<br/>Request model"]
     D --> G
-    A --> H["Auto-generated\n/docs\n/redoc"]
+    A --> H["Auto-generated<br/>/docs<br/>/redoc"]
 ```
 
 ---
@@ -1618,11 +1618,11 @@ Make sure `uvicorn fastapi_demo:app --reload` is running, then try each request 
 
 ```mermaid
 flowchart TD
-    A["Start FastAPI server\nuvicorn fastapi_demo:app --reload"] --> B{"How to test?"}
-    B --> C["Postman\nManual GUI testing\nGood for exploring"]
-    B --> D["fastapi_client.py\nAutomatic scripted tests\nGood for repeating"]
-    B --> E["http://127.0.0.1:8000/docs\nBuilt-in Swagger UI\nInstant, no setup"]
-    C --> F["Check status code\nand response body"]
+    A["Start FastAPI server<br/>uvicorn fastapi_demo:app --reload"] --> B{"How to test?"}
+    B --> C["Postman<br/>Manual GUI testing<br/>Good for exploring"]
+    B --> D["fastapi_client.py<br/>Automatic scripted tests<br/>Good for repeating"]
+    B --> E["http://127.0.0.1:8000/docs<br/>Built-in Swagger UI<br/>Instant, no setup"]
+    C --> F["Check status code<br/>and response body"]
     D --> F
     E --> F
 ```
@@ -1646,10 +1646,10 @@ Flask has been around since 2010 and has a large ecosystem of extensions. It is 
 
 ```mermaid
 flowchart LR
-    A["Client\nrequest"] --> B["Flask\nrouter\n@app.route()"]
+    A["Client<br/>request"] --> B["Flask<br/>router<br/>@app.route()"]
     B --> C["Your function"]
-    C --> D["jsonify()\nreturn JSON response"]
-    D --> E["Client\nreceives JSON"]
+    C --> D["jsonify()<br/>return JSON response"]
+    D --> E["Client<br/>receives JSON"]
 ```
 
 ---
@@ -1711,10 +1711,10 @@ The difference matters because clients (browsers, `requests`, Postman) expect:
 
 ```mermaid
 flowchart LR
-    A["Python dict\n{'name': 'Alice', 'grade': 90}"] --> B["jsonify()"]
-    B --> C["JSON string\n'{\"name\": \"Alice\", \"grade\": 90}'"]
-    B --> D["Header set:\nContent-Type: application/json"]
-    C --> E["HTTP Response\nsent to client"]
+    A["Python dict<br/>{'name': 'Alice', 'grade': 90}"] --> B["jsonify()"]
+    B --> C["JSON string<br/>'{\"name\": \"Alice\", \"grade\": 90}'"]
+    B --> D["Header set:<br/>Content-Type: application/json"]
+    C --> E["HTTP Response<br/>sent to client"]
     D --> E
 ```
 
@@ -2201,14 +2201,14 @@ Make sure `python flask_demo.py` is running, then test these requests:
 
 ```mermaid
 flowchart TD
-    A["Django"] --> B["ORM\n(Database layer)"]
-    A --> C["Auth system\n(built-in)"]
-    A --> D["Admin panel\n(built-in)"]
-    A --> E["Django REST\nFramework"]
-    E --> F["Serializers\n(like Pydantic)"]
-    E --> G["ViewSets\n(CRUD endpoints)"]
-    E --> H["Browsable API\n(documentation)"]
-    E --> I["Permissions\n& Throttling"]
+    A["Django"] --> B["ORM<br/>(Database layer)"]
+    A --> C["Auth system<br/>(built-in)"]
+    A --> D["Admin panel<br/>(built-in)"]
+    A --> E["Django REST<br/>Framework"]
+    E --> F["Serializers<br/>(like Pydantic)"]
+    E --> G["ViewSets<br/>(CRUD endpoints)"]
+    E --> H["Browsable API<br/>(documentation)"]
+    E --> I["Permissions<br/>& Throttling"]
 ```
 
 ---
@@ -2325,10 +2325,10 @@ Choosing the right framework depends on the size of the project, the team's expe
 
 ```mermaid
 flowchart TD
-    A{"What are\nyou building?"}
-    A -->|"ML / AI API\nMicroservice\nHigh performance"| B["FastAPI"]
-    A -->|"Small prototype\nSimple REST API\nMinimal dependencies"| C["Flask"]
-    A -->|"Full application\nComplex DB\nAdmin panel needed"| D["Django + DRF"]
+    A{"What are<br/>you building?"}
+    A -->|"ML / AI API<br/>Microservice<br/>High performance"| B["FastAPI"]
+    A -->|"Small prototype<br/>Simple REST API<br/>Minimal dependencies"| C["Flask"]
+    A -->|"Full application<br/>Complex DB<br/>Admin panel needed"| D["Django + DRF"]
 ```
 
 ---
@@ -2358,9 +2358,9 @@ FastAPI's asynchronous architecture makes it significantly faster than Flask and
 ```mermaid
 flowchart LR
     subgraph PERF["Relative performance (requests/sec)"]
-        F["FastAPI\n~50,000 req/s"]
-        FL["Flask\n~10,000 req/s"]
-        D["Django\n~8,000 req/s"]
+        F["FastAPI<br/>~50,000 req/s"]
+        FL["Flask<br/>~10,000 req/s"]
+        D["Django<br/>~8,000 req/s"]
     end
 ```
 
@@ -2440,10 +2440,10 @@ Authentication is how an API verifies the identity of the caller. Most productio
 
 ```mermaid
 flowchart LR
-    A["API Authentication\nmethods"] --> B["API Key\nSimple, static token"]
-    A --> C["Bearer Token\nJWT — stateless"]
-    A --> D["Basic Auth\nUsername + password\nBase64 encoded"]
-    A --> E["OAuth 2.0\nThird-party authorization"]
+    A["API Authentication<br/>methods"] --> B["API Key<br/>Simple, static token"]
+    A --> C["Bearer Token<br/>JWT — stateless"]
+    A --> D["Basic Auth<br/>Username + password<br/>Base64 encoded"]
+    A --> E["OAuth 2.0<br/>Third-party authorization"]
 ```
 
 ---
@@ -2502,7 +2502,7 @@ sequenceDiagram
 
     C->>A: POST /login {username, password}
     A-->>C: 200 OK {token: "eyJhbGci..."}
-    C->>P: GET /profile\nAuthorization: Bearer eyJhbGci...
+    C->>P: GET /profile<br/>Authorization: Bearer eyJhbGci...
     P->>P: Verify JWT signature
     P-->>C: 200 OK {user data}
 ```
@@ -2742,18 +2742,18 @@ def get_user(user_id):
 
 ```mermaid
 flowchart TD
-    A["Client sends request"] --> B{"Network\nreachable?"}
-    B -->|"No"| C["ConnectionError\nor Timeout"]
-    B -->|"Yes"| D["Server receives\nrequest"]
-    D --> E{"Valid\ndata?"}
-    E -->|"No"| F["400 or 422\nValidation error"]
+    A["Client sends request"] --> B{"Network<br/>reachable?"}
+    B -->|"No"| C["ConnectionError<br/>or Timeout"]
+    B -->|"Yes"| D["Server receives<br/>request"]
+    D --> E{"Valid<br/>data?"}
+    E -->|"No"| F["400 or 422<br/>Validation error"]
     E -->|"Yes"| G{"Authenticated?"}
     G -->|"No"| H["401 Unauthorized"]
-    G -->|"Yes"| I{"Resource\nexists?"}
+    G -->|"Yes"| I{"Resource<br/>exists?"}
     I -->|"No"| J["404 Not Found"]
-    I -->|"Yes"| K{"Processing\nsucceeds?"}
+    I -->|"Yes"| K{"Processing<br/>succeeds?"}
     K -->|"No"| L["500 Server Error"]
-    K -->|"Yes"| M["2xx Success\nReturn data"]
+    K -->|"Yes"| M["2xx Success<br/>Return data"]
 ```
 
 </details>
@@ -2780,7 +2780,7 @@ The API supports:
 
 ```mermaid
 flowchart LR
-    A["Client\n(requests)"] -->|"GET /books"| B["List all books"]
+    A["Client<br/>(requests)"] -->|"GET /books"| B["List all books"]
     A -->|"GET /books/1"| C["Get book id=1"]
     A -->|"POST /books"| D["Create new book"]
     A -->|"PUT /books/1"| E["Update book id=1"]
@@ -3044,12 +3044,12 @@ This document covered the full lifecycle of API development in Python:
 ```mermaid
 flowchart LR
     subgraph CLIENT["Client side"]
-        R["requests library\nGET, POST, PUT, DELETE\nHeaders, auth, timeout"]
+        R["requests library<br/>GET, POST, PUT, DELETE<br/>Headers, auth, timeout"]
     end
     subgraph SERVER["Server side"]
-        F["FastAPI\nFast, modern, type-safe"]
-        FL["Flask\nLightweight, flexible"]
-        D["Django + DRF\nFull-stack, batteries included"]
+        F["FastAPI<br/>Fast, modern, type-safe"]
+        FL["Flask<br/>Lightweight, flexible"]
+        D["Django + DRF<br/>Full-stack, batteries included"]
     end
     R -->|"HTTP"| F
     R -->|"HTTP"| FL
