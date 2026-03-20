@@ -279,8 +279,8 @@ sequenceDiagram
 Every HTTP request has four components:
 
 ```text
-POST /api/users HTTP/1.1
-Host: api.example.com
+POST /users HTTP/1.1
+Host: jsonplaceholder.typicode.com
 Content-Type: application/json
 Authorization: Bearer eyJhbGci...
 
@@ -317,7 +317,7 @@ GET is used to retrieve data from the server. It should have no side effects —
 ```python
 import requests
 
-response = requests.get("https://api.example.com/users")
+response = requests.get("https://jsonplaceholder.typicode.com/users")
 print(response.json())
 ```
 
@@ -329,7 +329,7 @@ POST is used to send data to the server to create a new resource. The data is in
 import requests
 
 payload = {"name": "Alice", "email": "alice@example.com"}
-response = requests.post("https://api.example.com/users", json=payload)
+response = requests.post("https://jsonplaceholder.typicode.com/users", json=payload)
 print(response.status_code)  # 201 Created
 ```
 
@@ -341,7 +341,7 @@ PUT replaces the entire resource with the data provided. If any field is missing
 import requests
 
 payload = {"name": "Alice Updated", "email": "alice@example.com"}
-response = requests.put("https://api.example.com/users/42", json=payload)
+response = requests.put("https://jsonplaceholder.typicode.com/users/1", json=payload)
 ```
 
 #### PATCH — Partially update a resource
@@ -352,7 +352,7 @@ PATCH only updates the fields that are provided, leaving the rest unchanged.
 import requests
 
 payload = {"name": "Alice Renamed"}
-response = requests.patch("https://api.example.com/users/42", json=payload)
+response = requests.patch("https://jsonplaceholder.typicode.com/users/1", json=payload)
 ```
 
 #### DELETE — Remove a resource
@@ -362,8 +362,8 @@ DELETE removes the specified resource from the server.
 ```python
 import requests
 
-response = requests.delete("https://api.example.com/users/42")
-print(response.status_code)  # 204 No Content
+response = requests.delete("https://jsonplaceholder.typicode.com/users/1")
+print(response.status_code)  # 200 OK (JSONPlaceholder simulates deletion)
 ```
 
 ---
@@ -373,18 +373,17 @@ print(response.status_code)  # 204 No Content
 A well-designed REST URL identifies a resource clearly:
 
 ```text
-https://api.example.com/v1/users/42/posts?limit=10&page=2
-|_____| |_____________| |_| |___| |_| |___| |______________|
-scheme     host         ver resource id sub  query params
+https://jsonplaceholder.typicode.com/users/1/posts?_limit=10&_page=2
+|_____| |____________________________| |___| |_| |___| |_______________|
+scheme           host                 resource id sub   query params
 ```
 
 | Part | Description |
 |---|---|
 | `https` | Protocol (always HTTPS in production) |
-| `api.example.com` | Host (the server address) |
-| `/v1` | API version |
-| `/users/42` | Resource path with ID |
-| `/posts` | Sub-resource (posts belonging to user 42) |
+| `jsonplaceholder.typicode.com` | Host (the server address) |
+| `/users/1` | Resource path with ID |
+| `/posts` | Sub-resource (posts belonging to user 1) |
 | `?limit=10&page=2` | Query parameters (filters, pagination) |
 
 ---
@@ -553,7 +552,7 @@ These errors mean something went wrong on the **server**. The client did nothing
 ```python
 import requests
 
-response = requests.get("https://api.example.com/users/42")
+response = requests.get("https://jsonplaceholder.typicode.com/users/1")
 
 if response.status_code == 200:
     data = response.json()
@@ -575,7 +574,7 @@ import requests
 from requests.exceptions import HTTPError
 
 try:
-    response = requests.get("https://api.example.com/users/42")
+    response = requests.get("https://jsonplaceholder.typicode.com/users/1")
     response.raise_for_status()  # Raises HTTPError for 4xx and 5xx
     data = response.json()
     print("Success:", data)
@@ -787,7 +786,7 @@ headers = {
 }
 
 response = requests.get(
-    "https://api.example.com/protected/resource",
+    "https://httpbin.org/bearer",
     headers=headers
 )
 ```
@@ -808,9 +807,9 @@ session.headers.update({
 })
 
 # All requests through this session will include the shared headers
-r1 = session.get("https://api.example.com/users")
-r2 = session.get("https://api.example.com/products")
-r3 = session.post("https://api.example.com/orders", json={"product_id": 5})
+r1 = session.get("https://jsonplaceholder.typicode.com/users")
+r2 = session.get("https://jsonplaceholder.typicode.com/posts")
+r3 = session.post("https://jsonplaceholder.typicode.com/todos", json={"title": "Buy milk", "completed": False})
 
 session.close()
 ```
@@ -826,7 +825,7 @@ import requests
 
 try:
     response = requests.get(
-        "https://api.example.com/data",
+        "https://httpbin.org/delay/2",  # simulates a slow server (2 second delay)
         timeout=5  # wait at most 5 seconds
     )
     response.raise_for_status()
@@ -2463,7 +2462,7 @@ headers = {
 }
 
 response = requests.get(
-    "https://api.example.com/data",
+    "https://httpbin.org/get",
     headers=headers
 )
 ```
@@ -2515,14 +2514,14 @@ import requests
 
 # Step 1: login to get a token
 login_response = requests.post(
-    "https://api.example.com/login",
+    "http://127.0.0.1:8000/login",
     json={"username": "alice", "password": "secret"}
 )
 token = login_response.json()["access_token"]
 
 # Step 2: use the token for protected endpoints
 headers = {"Authorization": f"Bearer {token}"}
-response = requests.get("https://api.example.com/profile", headers=headers)
+response = requests.get("http://127.0.0.1:8000/profile", headers=headers)
 print(response.json())
 ```
 
@@ -2577,7 +2576,7 @@ Basic Auth sends the username and password encoded in Base64 inside the `Authori
 import requests
 
 response = requests.get(
-    "https://api.example.com/resource",
+    "https://httpbin.org/basic-auth/alice/my-password",
     auth=("alice", "my-password")  # requests handles Base64 encoding
 )
 ```
