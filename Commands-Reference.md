@@ -1,6 +1,6 @@
 <a id="top"></a>
 
-# 🖥️ Commands Reference — FastAPI, Streamlit, Flask, TensorFlow & Python
+# Commands Reference — FastAPI, Streamlit, Flask, TensorFlow & Python
 
 > **Complete command reference** for setting up and running Python AI projects across **Windows**, **macOS**, and **Linux Ubuntu 22.04**.
 > All commands are copy-paste ready.
@@ -31,7 +31,7 @@
 <a id="s1"></a>
 
 <details>
-<summary>⚙️ 1 — System Setup — Install Python</summary>
+<summary>1 — System Setup — Install Python</summary>
 
 <br/>
 
@@ -118,7 +118,7 @@ pip3 --version
 <a id="s2"></a>
 
 <details>
-<summary>📁 2 — Project Folder Setup</summary>
+<summary>2 — Project Folder Setup</summary>
 
 <br/>
 
@@ -204,7 +204,7 @@ my_ai_project/
 <a id="s3"></a>
 
 <details>
-<summary>🐍 3 — Virtual Environment — Create & Activate</summary>
+<summary>3 — Virtual Environment — Create & Activate</summary>
 
 <br/>
 
@@ -302,7 +302,7 @@ deactivate
 <a id="s4"></a>
 
 <details>
-<summary>📦 4 — Package Management — pip</summary>
+<summary>4 — Package Management — pip</summary>
 
 <br/>
 
@@ -419,7 +419,7 @@ pip install fastapi
 <a id="s5"></a>
 
 <details>
-<summary>🔧 5 — Install Project Dependencies</summary>
+<summary>5 — Install Project Dependencies</summary>
 
 <br/>
 
@@ -535,7 +535,7 @@ pip install flask python-dotenv flask-sqlalchemy
 <a id="s6"></a>
 
 <details>
-<summary>🚀 6 — Run FastAPI</summary>
+<summary>6 — Run FastAPI</summary>
 
 <br/>
 
@@ -667,7 +667,7 @@ pkill -f uvicorn
 <a id="s7"></a>
 
 <details>
-<summary>🎨 7 — Run Streamlit</summary>
+<summary>7 — Run Streamlit</summary>
 
 <br/>
 
@@ -716,7 +716,7 @@ import streamlit as st
 import requests
 
 st.set_page_config(page_title="AI Prediction App", layout="centered")
-st.title("🤖 AI Prediction App")
+st.title("AI Prediction App")
 
 st.write("Enter 8 feature values below:")
 features = [st.number_input(f"Feature {i+1}", value=0.0) for i in range(8)]
@@ -802,7 +802,7 @@ pkill -f streamlit
 <a id="s8"></a>
 
 <details>
-<summary>🌶️ 8 — Run Flask</summary>
+<summary>8 — Run Flask</summary>
 
 <br/>
 
@@ -903,7 +903,7 @@ Ctrl + C
 <a id="s9"></a>
 
 <details>
-<summary>🧠 9 — TensorFlow — Train & Save a Model</summary>
+<summary>9 — TensorFlow — Train & Save a Model</summary>
 
 <br/>
 
@@ -1027,7 +1027,7 @@ python model.py
 <a id="s10"></a>
 
 <details>
-<summary>🔀 10 — Git — Version Control</summary>
+<summary>10 — Git — Version Control</summary>
 
 <br/>
 
@@ -1187,7 +1187,7 @@ model/
 <a id="s11"></a>
 
 <details>
-<summary>🐍 11 — Useful Python Commands</summary>
+<summary>11 — Useful Python Commands</summary>
 
 <br/>
 
@@ -1356,7 +1356,7 @@ debug = os.getenv("DEBUG", "False") == "True"
 <a id="s12"></a>
 
 <details>
-<summary>📬 12 — Postman — Quick Reference</summary>
+<summary>12 — Postman — Quick Reference</summary>
 
 <br/>
 
@@ -1490,7 +1490,7 @@ print(response.json())
 <a id="s13"></a>
 
 <details>
-<summary>🛠️ 13 — Troubleshooting — Common Errors</summary>
+<summary>13 — Troubleshooting — Common Errors</summary>
 
 <br/>
 
@@ -1665,7 +1665,7 @@ uvicorn backend:app --reload
 <a id="s14"></a>
 
 <details>
-<summary>📋 14 — Full Setup Cheatsheet</summary>
+<summary>14 — Full Setup Cheatsheet</summary>
 
 <br/>
 
