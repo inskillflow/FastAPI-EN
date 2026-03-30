@@ -3141,14 +3141,6 @@ git clone https://github.com/inskillflow/demo_api_1_simple_fastapi_app.git
 cd demo_api_1_simple_fastapi_app
 ```
 
-
-or 
-
-```bash
-git clone https://github.com/inskillflow/demo_api_1_simple_fastapi_app.git demo_api_1
-cd demo_api_1
-```
-
 ---
 
 ### Step 2 — Create the virtual environment
