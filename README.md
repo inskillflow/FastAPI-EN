@@ -42,14 +42,14 @@ flowchart TD
     F --> G["12, 14, 15 — Quizzes\n& Command Reference"]
     G --> H["17-18 — Evaluations\nBuild a Full REST API"]
 
-    click A "00-What-is-FastAPI.md" _blank
-    click B "05-FastAPI-APIs-From-Concepts-to-Implementation.md" _blank
-    click C "01-FastAPI-Calculator-API-with-Swagger-UI.md" _blank
-    click D "06-FastAPI-Method-1-Swagger-UI-REST-Client-Practical-Testing-Guide.md" _blank
-    click E "11-FastAPI-Step-by-Step-CRUD-Lab-Contact-Manager-API.md" _blank
-    click F "16-FastAPI-main-py-Explained-Line-by-Line.md" _blank
-    click G "12-FastAPI-Quiz-APIs-Flask-Requests-and-ML.md" _blank
-    click H "17-FastAPI-Evaluation-1-Build-a-Complete-REST-API.md" _blank
+    click A "./00-What-is-FastAPI.md" _blank
+    click B "./05-FastAPI-APIs-From-Concepts-to-Implementation.md" _blank
+    click C "./01-FastAPI-Calculator-API-with-Swagger-UI.md" _blank
+    click D "./06-FastAPI-Method-1-Swagger-UI-REST-Client-Practical-Testing-Guide.md" _blank
+    click E "./11-FastAPI-Step-by-Step-CRUD-Lab-Contact-Manager-API.md" _blank
+    click F "./16-FastAPI-main-py-Explained-Line-by-Line.md" _blank
+    click G "./12-FastAPI-Quiz-APIs-Flask-Requests-and-ML.md" _blank
+    click H "./17-FastAPI-Evaluation-1-Build-a-Complete-REST-API.md" _blank
 ```
 
 ---
@@ -71,13 +71,13 @@ flowchart TD
     FT4 --> FT5["17 — Evaluation 1\nBuild a Complete REST API"]
     FT5 --> FT6["18 — Evaluation 2\nAdd a Streamlit Frontend to Your API"]
 
-    click FT1 "05-FastAPI-APIs-From-Concepts-to-Implementation.md" _blank
-    click FT2 "15-FastAPI-Calculator-Practical-Quiz-Labs-and-Command-Reference.md" _blank
-    click FT2d "08-FastAPI-Method-3-VS-Code-REST-Client-Practical-Testing-Guide.md" _blank
-    click FT3 "06-FastAPI-Method-1-Swagger-UI-REST-Client-Practical-Testing-Guide.md" _blank
-    click FT4 "16-FastAPI-main-py-Explained-Line-by-Line.md" _blank
-    click FT5 "17-FastAPI-Evaluation-1-Build-a-Complete-REST-API.md" _blank
-    click FT6 "18-FastAPI-Evaluation-2-Build-a-Complete-REST-API.md" _blank
+    click FT1 "./05-FastAPI-APIs-From-Concepts-to-Implementation.md" _blank
+    click FT2 "./15-FastAPI-Calculator-Practical-Quiz-Labs-and-Command-Reference.md" _blank
+    click FT2d "./08-FastAPI-Method-3-VS-Code-REST-Client-Practical-Testing-Guide.md" _blank
+    click FT3 "./06-FastAPI-Method-1-Swagger-UI-REST-Client-Practical-Testing-Guide.md" _blank
+    click FT4 "./16-FastAPI-main-py-Explained-Line-by-Line.md" _blank
+    click FT5 "./17-FastAPI-Evaluation-1-Build-a-Complete-REST-API.md" _blank
+    click FT6 "./18-FastAPI-Evaluation-2-Build-a-Complete-REST-API.md" _blank
 ```
 
 ## Tech Stack
