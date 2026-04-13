@@ -448,24 +448,3 @@ The logic is simple: **learn, analyze, test, build, extend**.
 > 3. Build your own API by adaptation, not by improvisation.
 > 4. Reuse the front-end patterns already analyzed.
 > 5. Move to the next project only after completing the full sequence.
-
-````
-
-Voici aussi un petit bonus à copier en haut du README pour un rendu encore plus “premium” :
-
-```markdown id="54794"
-<p align="center">
-  <img src="https://img.shields.io/badge/FastAPI-Learning%20Path-059669?style=for-the-badge">
-  <img src="https://img.shields.io/badge/API-Testing-2563eb?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Projects-Hands--On-7c3aed?style=for-the-badge">
-</p>
-````
-
-Je peux aussi te faire une **version ultra luxe README GitHub** avec :
-
-* bannière titre,
-* section **Prerequisites**,
-* section **Learning Outcomes**,
-* section **Deliverables**,
-* section **Submission Strategy**,
-* et un style encore plus “course repo / enterprise training”.
