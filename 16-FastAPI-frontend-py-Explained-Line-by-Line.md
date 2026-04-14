@@ -11,7 +11,7 @@
 
 ---
 
-
+```md
 :::tip
 This guide explains the Streamlit frontend used in this project:
 
@@ -26,6 +26,8 @@ Reference links:
 
 This document focuses on explaining the frontend file step by step, while the backend logic is implemented in `main.py`.
 :::
+```
+
 
 ## Table of Contents
 
