@@ -8,18 +8,6 @@
 > No prior experience with Streamlit or `requests` is assumed, but the explanations stay technically serious.
 > Each section can be read independently.
 > This explanation is based on the provided `frontend.py` file. :contentReference[oaicite:0]{index=0}
-This guide explains the Streamlit frontend used in this project:
-
-- Frontend file: `frontend.py`
-- Project repository: `demo_api_1_simple_fastapi_app`
-- Backend file: `main.py`
-
-Reference links:
-- Frontend: `https://github.com/inskillflow/demo_api_1_simple_fastapi_app/blob/main/frontend.py`
-- Project: `https://github.com/inskillflow/demo_api_1_simple_fastapi_app/`
-- Backend: `https://github.com/inskillflow/demo_api_1_simple_fastapi_app/blob/main/main.py`
-
-This document focuses on explaining the frontend file step by step, while the backend logic is implemented in `main.py`.
 
 ---
 
@@ -70,6 +58,22 @@ This document focuses on explaining the frontend file step by step, while the ba
 ### One sentence
 
 `frontend.py` is a **web interface** built with Streamlit that lets a user interact with the FastAPI Task Manager backend through forms, selectors, and buttons instead of manually crafting HTTP requests. :contentReference[oaicite:1]{index=1}
+
+
+This guide explains the Streamlit frontend used in this project:
+
+- Frontend file: `frontend.py`
+- Project repository: `demo_api_1_simple_fastapi_app`
+- Backend file: `main.py`
+
+Reference links:
+- Frontend: `https://github.com/inskillflow/demo_api_1_simple_fastapi_app/blob/main/frontend.py`
+- Project: `https://github.com/inskillflow/demo_api_1_simple_fastapi_app/`
+- Backend: `https://github.com/inskillflow/demo_api_1_simple_fastapi_app/blob/main/main.py`
+
+This document focuses on explaining the frontend file step by step, while the backend logic is implemented in `main.py`.
+
+
 
 ---
 
