@@ -1,6 +1,22 @@
 <a id="top"></a>
 
 # Understanding `frontend.py` — Every Line Explained
+
+:::tip
+This guide explains the Streamlit frontend used in this project:
+
+- Frontend file: `frontend.py`
+- Project repository: `demo_api_1_simple_fastapi_app`
+- Backend file: `main.py`
+
+Reference links:
+- Frontend: `https://github.com/inskillflow/demo_api_1_simple_fastapi_app/blob/main/frontend.py`
+- Project: `https://github.com/inskillflow/demo_api_1_simple_fastapi_app/`
+- Backend: `https://github.com/inskillflow/demo_api_1_simple_fastapi_app/blob/main/main.py`
+
+This document focuses on explaining the frontend file step by step, while the backend logic is implemented in `main.py`.
+:::
+
 ## Task Manager UI — Streamlit Deep Dive, Clear and Practical
 
 > Every concept is explained clearly from the ground up.
