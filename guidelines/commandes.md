@@ -1,12 +1,13 @@
-## :::Tips
-
-```bat
-cd C:\Users\%USERNAME%\Downloads
-mkdir application1
-cd application1
-git clone https://github.com/inskillflow/demo_api_1_simple_fastapi_app.git .
-code .
-```
+> [!TIP]
+> Initialisation du projet
+>
+> ```bat
+> cd C:\Users\%USERNAME%\Downloads
+> mkdir application1
+> cd application1
+> git clone https://github.com/inskillflow/demo_api_1_simple_fastapi_app.git .
+> code .
+> ```
 
 ---
 
