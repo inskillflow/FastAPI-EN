@@ -26,8 +26,8 @@ pip list
 > **If PowerShell blocks the activation script, run:**
 >
 > ```powershell
-> <=============== Set-ExecutionPolicy -Scope Process Bypass
-> .\myapp1\Scripts\Activate.ps1
+>  Set-ExecutionPolicy -Scope Process Bypass    <=============== 
+> .\myapp1\Scripts\Activate.ps1 <=============== 
 > ```
 
 ---
